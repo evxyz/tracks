@@ -1,11 +1,15 @@
 Trax::Application.routes.draw do
+  get "genres/index"
+
   resources :tracks
+  resources :genres
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
   # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
+                #  genres GET    /genres(.:format)          genres#index
+                # match 'genre/:id' => 'genres#index'
   # Keep in mind you can assign values other than :controller and :action
 
   # Sample of named route:

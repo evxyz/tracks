@@ -1,0 +1,92 @@
+Folder PATH listing for volume OS
+Volume serial number is 00000200 008E:DBB0
+C:.
+ÃÄÄÄapp
+³   ÃÄÄÄassets
+³   ³   ÃÄÄÄimages
+³   ³   ÃÄÄÄjavascripts
+³   ³   ÀÄÄÄstylesheets
+³   ÃÄÄÄcontrollers
+³   ÃÄÄÄhelpers
+³   ÃÄÄÄmailers
+³   ÃÄÄÄmodels
+³   ÀÄÄÄviews
+³       ÃÄÄÄgenres
+³       ÃÄÄÄlayouts
+³       ÀÄÄÄtracks
+ÃÄÄÄconfig
+³   ÃÄÄÄenvironments
+³   ÃÄÄÄinitializers
+³   ÀÄÄÄlocales
+ÃÄÄÄdb
+³   ÀÄÄÄmigrate
+ÃÄÄÄdoc
+ÃÄÄÄlib
+³   ÃÄÄÄassets
+³   ÀÄÄÄtasks
+ÃÄÄÄlog
+ÃÄÄÄpublic
+ÃÄÄÄscript
+ÃÄÄÄtest
+³   ÃÄÄÄfixtures
+³   ÃÄÄÄfunctional
+³   ÃÄÄÄintegration
+³   ÃÄÄÄperformance
+³   ÀÄÄÄunit
+³       ÀÄÄÄhelpers
+ÃÄÄÄtmp
+³   ÃÄÄÄcache
+³   ³   ÃÄÄÄassets
+³   ³   ³   ÃÄÄÄC4F
+³   ³   ³   ³   ÀÄÄÄ340
+³   ³   ³   ÃÄÄÄCD7
+³   ³   ³   ³   ÀÄÄÄ6F0
+³   ³   ³   ÃÄÄÄCD8
+³   ³   ³   ³   ÀÄÄÄ370
+³   ³   ³   ÃÄÄÄCE8
+³   ³   ³   ³   ÀÄÄÄCC0
+³   ³   ³   ÃÄÄÄCF0
+³   ³   ³   ³   ÀÄÄÄDA0
+³   ³   ³   ÃÄÄÄCF5
+³   ³   ³   ³   ÀÄÄÄ250
+³   ³   ³   ÃÄÄÄD32
+³   ³   ³   ³   ÀÄÄÄA10
+³   ³   ³   ÃÄÄÄD37
+³   ³   ³   ³   ÀÄÄÄ7B0
+³   ³   ³   ÃÄÄÄD3B
+³   ³   ³   ³   ÀÄÄÄ670
+³   ³   ³   ÃÄÄÄD4E
+³   ³   ³   ³   ÀÄÄÄ1B0
+³   ³   ³   ÃÄÄÄD5A
+³   ³   ³   ³   ÀÄÄÄEA0
+³   ³   ³   ÃÄÄÄD96
+³   ³   ³   ³   ÀÄÄÄ570
+³   ³   ³   ÃÄÄÄD9C
+³   ³   ³   ³   ÀÄÄÄ870
+³   ³   ³   ÃÄÄÄDB0
+³   ³   ³   ³   ÀÄÄÄD30
+³   ³   ³   ÃÄÄÄDC5
+³   ³   ³   ³   ÃÄÄÄC30
+³   ³   ³   ³   ÀÄÄÄF50
+³   ³   ³   ÃÄÄÄDDC
+³   ³   ³   ³   ÀÄÄÄ400
+³   ³   ³   ÃÄÄÄE04
+³   ³   ³   ³   ÀÄÄÄ890
+³   ³   ³   ÃÄÄÄE08
+³   ³   ³   ³   ÀÄÄÄB00
+³   ³   ³   ÃÄÄÄE19
+³   ³   ³   ³   ÀÄÄÄ2A0
+³   ³   ³   ÃÄÄÄE25
+³   ³   ³   ³   ÀÄÄÄ4C0
+³   ³   ³   ÀÄÄÄE3A
+³   ³   ³       ÀÄÄÄA10
+³   ³   ÀÄÄÄsass
+³   ³       ÀÄÄÄca47eb81dc6683812203f7606b3c790e78f6fe55
+³   ÃÄÄÄpids
+³   ÃÄÄÄsessions
+³   ÀÄÄÄsockets
+ÀÄÄÄvendor
+    ÃÄÄÄassets
+    ³   ÃÄÄÄjavascripts
+    ³   ÀÄÄÄstylesheets
+    ÀÄÄÄplugins

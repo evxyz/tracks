@@ -24,13 +24,13 @@ class TracksController < ApplicationController
 
   # GET /tracks/new
   # GET /tracks/new.json
+    end
   def new
     @track = Track.new
 
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @track }
-    end
   end
 
   # GET /tracks/1/edit
