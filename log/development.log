@@ -1,0 +1,815 @@
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (25.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (5.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35m (5.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTracks (20120428024525)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mCREATE TABLE "tracks" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120428024525')
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (5.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("tracks")
+
+
+Started GET "/mixtapes" for 127.0.0.1 at 2012-04-28 01:11:18 -0400
+
+ActionController::RoutingError (No route matches [GET] "/mixtapes"):
+  actionpack (3.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.3) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.3) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.3) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.3) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.3) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.3) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.3) lib/rails/engine.rb:479:in `call'
+  railties (3.2.3) lib/rails/application.rb:220:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.3) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  c:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  c:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  c:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (35.0ms)
+
+
+Started GET "/tracks/" for 127.0.0.1 at 2012-04-28 01:11:20 -0400
+Processing by TracksController#index as HTML
+  [1m[36mTrack Load (0.0ms)[0m  [1mSELECT "tracks".* FROM "tracks" [0m
+  Rendered tracks/index.html.erb within layouts/application (90.0ms)
+Completed 500 Internal Server Error in 450ms
+
+ActionView::Template::Error ([]):
+    7:     <th></th>
+    8:     <th></th>
+    9:   </tr>
+    10: <% raise @tracks.inspect %>
+    11: <% @tracks.each do |track| %>
+    12:   <tr>
+    13:     <td><%= track.title %></td>
+  app/views/tracks/index.html.erb:10:in `_app_views_tracks_index_html_erb__981453985_34825200'
+  app/controllers/tracks_controller.rb:7:in `index'
+
+
+  Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (5.0ms)
+  Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.0ms)
+  Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (75.0ms)
+
+
+Started GET "/tracks/" for 127.0.0.1 at 2012-04-28 01:14:37 -0400
+Processing by TracksController#index as HTML
+  [1m[35mTrack Load (0.0ms)[0m  SELECT "tracks".* FROM "tracks" 
+  Rendered tracks/index.html.erb within layouts/application (5.0ms)
+Completed 500 Internal Server Error in 10ms
+
+ActionView::Template::Error ([]):
+    7:     <th></th>
+    8:     <th></th>
+    9:   </tr>
+    10: # <% raise @tracks.inspect %>
+    11: <% @tracks.each do |track| %>
+    12:   <tr>
+    13:     <td><%= track.title %></td>
+  app/views/tracks/index.html.erb:10:in `_app_views_tracks_index_html_erb__981453985_45279192'
+  app/controllers/tracks_controller.rb:7:in `index'
+
+
+  Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (10.0ms)
+  Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.0ms)
+  Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (60.0ms)
+
+
+Started GET "/tracks/" for 127.0.0.1 at 2012-04-28 01:14:45 -0400
+Processing by TracksController#index as HTML
+  [1m[36mTrack Load (5.0ms)[0m  [1mSELECT "tracks".* FROM "tracks" [0m
+  Rendered tracks/index.html.erb within layouts/application (6.0ms)
+Completed 500 Internal Server Error in 37ms
+
+ActionView::Template::Error ([]):
+    7:     <th></th>
+    8:     <th></th>
+    9:   </tr>
+    10: # <% raise @tracks.inspect %>
+    11: <% @tracks.each do |track| %>
+    12:   <tr>
+    13:     <td><%= track.title %></td>
+  app/views/tracks/index.html.erb:10:in `_app_views_tracks_index_html_erb__981453985_33952728'
+  app/controllers/tracks_controller.rb:7:in `index'
+
+
+  Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (5.0ms)
+  Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.0ms)
+  Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (65.0ms)
+
+
+Started GET "/tracks/" for 127.0.0.1 at 2012-04-28 01:15:00 -0400
+Processing by TracksController#index as HTML
+  [1m[35mTrack Load (0.0ms)[0m  SELECT "tracks".* FROM "tracks" 
+  Rendered tracks/index.html.erb within layouts/application (0.0ms)
+Completed 500 Internal Server Error in 20ms
+
+ActionView::Template::Error ([]):
+    7:     <th></th>
+    8:     <th></th>
+    9:   </tr>
+    10: # <% raise @tracks.inspect %>
+    11: <% @tracks.each do |track| %>
+    12:   <tr>
+    13:     <td><%= track.title %></td>
+  app/views/tracks/index.html.erb:10:in `_app_views_tracks_index_html_erb__981453985_33952728'
+  app/controllers/tracks_controller.rb:7:in `index'
+
+
+  Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (15.0ms)
+  Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.0ms)
+  Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (60.0ms)
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2012-04-28 01:15:20 -0400
+Served asset /rails.png - 200 OK (115ms)
+
+
+Started GET "/tracks/" for 127.0.0.1 at 2012-04-28 01:15:25 -0400
+Processing by TracksController#index as HTML
+  [1m[36mTrack Load (0.0ms)[0m  [1mSELECT "tracks".* FROM "tracks" [0m
+  Rendered tracks/index.html.erb within layouts/application (5.0ms)
+Completed 500 Internal Server Error in 15ms
+
+ActionView::Template::Error ([]):
+    7:     <th></th>
+    8:     <th></th>
+    9:   </tr>
+    10: # <% raise @tracks.inspect %>
+    11: <% @tracks.each do |track| %>
+    12:   <tr>
+    13:     <td><%= track.title %></td>
+  app/views/tracks/index.html.erb:10:in `_app_views_tracks_index_html_erb__981453985_33952728'
+  app/controllers/tracks_controller.rb:7:in `index'
+
+
+  Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (5.0ms)
+  Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.0ms)
+  Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (65.0ms)
+
+
+Started GET "/tracks/" for 127.0.0.1 at 2012-04-28 01:16:08 -0400
+Processing by TracksController#index as HTML
+  [1m[35mTrack Load (5.0ms)[0m  SELECT "tracks".* FROM "tracks" 
+  Rendered tracks/index.html.erb within layouts/application (5.0ms)
+Completed 500 Internal Server Error in 40ms
+
+ActionView::Template::Error ([]):
+    7:     <th></th>
+    8:     <th></th>
+    9:   </tr>
+    10: # <% raise @tracks.inspect %>
+    11: <% @tracks.each do |track| %>
+    12:   <tr>
+    13:     <td><%= track.title %></td>
+  app/views/tracks/index.html.erb:10:in `_app_views_tracks_index_html_erb__981453985_33952728'
+  app/controllers/tracks_controller.rb:7:in `index'
+
+
+  Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (5.0ms)
+  Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.0ms)
+  Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (45.0ms)
+
+
+Started GET "/tracks/" for 127.0.0.1 at 2012-04-28 01:16:15 -0400
+Processing by TracksController#index as HTML
+  [1m[36mTrack Load (0.0ms)[0m  [1mSELECT "tracks".* FROM "tracks" [0m
+  Rendered tracks/index.html.erb within layouts/application (0.0ms)
+Completed 500 Internal Server Error in 35ms
+
+ActionView::Template::Error ([]):
+    7:     <th></th>
+    8:     <th></th>
+    9:   </tr>
+    10: # <% raise @tracks.inspect %>
+    11: <% @tracks.each do |track| %>
+    12:   <tr>
+    13:     <td><%= track.title %></td>
+  app/views/tracks/index.html.erb:10:in `_app_views_tracks_index_html_erb__981453985_33952728'
+  app/controllers/tracks_controller.rb:7:in `index'
+
+
+  Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (10.0ms)
+  Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.0ms)
+  Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (65.0ms)
+
+
+Started GET "/tracks/" for 127.0.0.1 at 2012-04-28 01:16:26 -0400
+Processing by TracksController#index as HTML
+  [1m[35mTrack Load (0.0ms)[0m  SELECT "tracks".* FROM "tracks" 
+  Rendered tracks/index.html.erb within layouts/application (10.0ms)
+Compiled scaffolds.css  (85ms)  (pid 3368)
+Compiled tracks.css  (9ms)  (pid 3368)
+Compiled application.css  (190ms)  (pid 3368)
+Compiled jquery.js  (5ms)  (pid 3368)
+Compiled jquery_ujs.js  (0ms)  (pid 3368)
+Compiled tracks.js  (680ms)  (pid 3368)
+Compiled application.js  (920ms)  (pid 3368)
+Completed 200 OK in 1432ms (Views: 1432.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-04-28 01:16:27 -0400
+Served asset /application.css - 200 OK (44ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-04-28 01:16:27 -0400
+Served asset /scaffolds.css - 200 OK (6ms)
+
+
+Started GET "/assets/tracks.css?body=1" for 127.0.0.1 at 2012-04-28 01:16:28 -0400
+Served asset /tracks.css - 200 OK (5ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-04-28 01:16:28 -0400
+Served asset /jquery.js - 200 OK (9ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-04-28 01:16:28 -0400
+Served asset /jquery_ujs.js - 200 OK (7ms)
+
+
+Started GET "/assets/tracks.js?body=1" for 127.0.0.1 at 2012-04-28 01:16:28 -0400
+Served asset /tracks.js - 200 OK (45ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-04-28 01:16:28 -0400
+Served asset /application.js - 200 OK (16ms)
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2012-04-28 01:16:34 -0400
+Processing by TracksController#new as HTML
+  Rendered tracks/_form.html.erb (80.0ms)
+  Rendered tracks/new.html.erb within layouts/application (150.0ms)
+Completed 200 OK in 175ms (Views: 165.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tracks" for 127.0.0.1 at 2012-04-28 01:16:50 -0400
+Processing by TracksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nmTEFWHfSgQORbhNEEWIs9PBtNiTUPzy4a5GuFMH6iQ=", "track"=>{"title"=>"sankehips"}, "commit"=>"Create Track"}
+WARNING: Can't verify CSRF token authenticity
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (130.0ms)[0m  INSERT INTO "tracks" ("created_at", "title", "updated_at") VALUES (?, ?, ?)  [["created_at", Sat, 28 Apr 2012 05:16:50 UTC +00:00], ["title", "sankehips"], ["updated_at", Sat, 28 Apr 2012 05:16:50 UTC +00:00]]
+  [1m[36m (5.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/tracks/1
+Completed 302 Found in 150ms (ActiveRecord: 135.0ms)
+
+
+Started GET "/tracks/1" for 127.0.0.1 at 2012-04-28 01:16:50 -0400
+Processing by TracksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTrack Load (0.0ms)[0m  SELECT "tracks".* FROM "tracks" WHERE "tracks"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered tracks/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 25ms (Views: 15.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tracks" for 127.0.0.1 at 2012-04-28 01:16:55 -0400
+Processing by TracksController#index as HTML
+  [1m[36mTrack Load (5.0ms)[0m  [1mSELECT "tracks".* FROM "tracks" [0m
+  Rendered tracks/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 40ms (Views: 15.0ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2012-04-28 01:17:05 -0400
+Processing by TracksController#new as HTML
+  Rendered tracks/_form.html.erb (0.0ms)
+  Rendered tracks/new.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 20ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tracks" for 127.0.0.1 at 2012-04-28 01:17:13 -0400
+Processing by TracksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cbSFS7/i+3fUVxviIFknoVaAULu8fH5PtJ09wqzTGno=", "track"=>{"title"=>"out of season"}, "commit"=>"Create Track"}
+WARNING: Can't verify CSRF token authenticity
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (5.0ms)[0m  [1mINSERT INTO "tracks" ("created_at", "title", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sat, 28 Apr 2012 05:17:13 UTC +00:00], ["title", "out of season"], ["updated_at", Sat, 28 Apr 2012 05:17:13 UTC +00:00]]
+  [1m[35m (97.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/tracks/2
+Completed 302 Found in 112ms (ActiveRecord: 102.0ms)
+
+
+Started GET "/tracks/2" for 127.0.0.1 at 2012-04-28 01:17:13 -0400
+Processing by TracksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTrack Load (5.0ms)[0m  [1mSELECT "tracks".* FROM "tracks" WHERE "tracks"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  Rendered tracks/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 15ms (Views: 10.0ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/tracks" for 127.0.0.1 at 2012-04-28 01:17:18 -0400
+Processing by TracksController#index as HTML
+  [1m[35mTrack Load (0.0ms)[0m  SELECT "tracks".* FROM "tracks" 
+  Rendered tracks/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 20ms (Views: 15.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2012-04-28 01:17:20 -0400
+Processing by TracksController#new as HTML
+  Rendered tracks/_form.html.erb (5.0ms)
+  Rendered tracks/new.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 40ms (Views: 40.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tracks" for 127.0.0.1 at 2012-04-28 01:17:26 -0400
+Processing by TracksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qOFeIlwFSDa8Crj/AUT/8US+bHTuphkGKKRY9o6FBtw=", "track"=>{"title"=>"Ur"}, "commit"=>"Create Track"}
+WARNING: Can't verify CSRF token authenticity
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "tracks" ("created_at", "title", "updated_at") VALUES (?, ?, ?)  [["created_at", Sat, 28 Apr 2012 05:17:26 UTC +00:00], ["title", "Ur"], ["updated_at", Sat, 28 Apr 2012 05:17:26 UTC +00:00]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/tracks/3
+Completed 302 Found in 15ms (ActiveRecord: 10.0ms)
+
+
+Started GET "/tracks/3" for 127.0.0.1 at 2012-04-28 01:17:26 -0400
+Processing by TracksController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mTrack Load (0.0ms)[0m  SELECT "tracks".* FROM "tracks" WHERE "tracks"."id" = ? LIMIT 1  [["id", "3"]]
+  Rendered tracks/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 30ms (Views: 25.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tracks" for 127.0.0.1 at 2012-04-28 01:17:30 -0400
+Processing by TracksController#index as HTML
+  [1m[36mTrack Load (0.0ms)[0m  [1mSELECT "tracks".* FROM "tracks" [0m
+  Rendered tracks/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 20ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tracks/new" for 127.0.0.1 at 2012-04-28 01:17:35 -0400
+Processing by TracksController#new as HTML
+  Rendered tracks/_form.html.erb (5.0ms)
+  Rendered tracks/new.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 30ms (Views: 30.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tracks" for 127.0.0.1 at 2012-04-28 01:17:44 -0400
+Processing by TracksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5/trKU1Tria3MxfePVTQswyVKdhy0EZgYPwieSN6/k4=", "track"=>{"title"=>"days eye"}, "commit"=>"Create Track"}
+WARNING: Can't verify CSRF token authenticity
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "tracks" ("created_at", "title", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sat, 28 Apr 2012 05:17:44 UTC +00:00], ["title", "days eye"], ["updated_at", Sat, 28 Apr 2012 05:17:44 UTC +00:00]]
+  [1m[35m (60.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/tracks/4
+Completed 302 Found in 70ms (ActiveRecord: 60.0ms)
+
+
+Started GET "/tracks/4" for 127.0.0.1 at 2012-04-28 01:17:45 -0400
+Processing by TracksController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mTrack Load (0.0ms)[0m  [1mSELECT "tracks".* FROM "tracks" WHERE "tracks"."id" = ? LIMIT 1[0m  [["id", "4"]]
+  Rendered tracks/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 30ms (Views: 30.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tracks" for 127.0.0.1 at 2012-04-28 01:17:50 -0400
+Processing by TracksController#index as HTML
+  [1m[35mTrack Load (0.0ms)[0m  SELECT "tracks".* FROM "tracks" 
+  Rendered tracks/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 30ms (Views: 25.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tracks" for 127.0.0.1 at 2012-04-28 01:18:06 -0400
+Processing by TracksController#index as HTML
+  [1m[36mTrack Load (0.0ms)[0m  [1mSELECT "tracks".* FROM "tracks" [0m
+  Rendered tracks/index.html.erb within layouts/application (10.0ms)
+Completed 500 Internal Server Error in 20ms
+
+ActionView::Template::Error ([#<Track id: 1, title: "sankehips", created_at: "2012-04-28 05:16:50", updated_at: "2012-04-28 05:16:50">, #<Track id: 2, title: "out of season", created_at: "2012-04-28 05:17:13", updated_at: "2012-04-28 05:17:13">, #<Track id: 3, title: "Ur", created_at: "2012-04-28 05:17:26", updated_at: "2012-04-28 05:17:26">, #<Track id: 4, title: "days eye", created_at: "2012-04-28 05:17:44", updated_at: "2012-04-28 05:17:44">]):
+    7:     <th></th>
+    8:     <th></th>
+    9:   </tr>
+    10: <% raise @tracks.inspect %>
+    11: <% @tracks.each do |track| %>
+    12:   <tr>
+    13:     <td><%= track.title %></td>
+  app/views/tracks/index.html.erb:10:in `_app_views_tracks_index_html_erb__981453985_45249912'
+  app/controllers/tracks_controller.rb:7:in `index'
+
+
+  Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (5.0ms)
+  Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.0ms)
+  Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (50.0ms)
+
+
+Started GET "/tracks" for 127.0.0.1 at 2012-04-28 01:46:54 -0400
+Processing by TracksController#index as HTML
+  [1m[35mTrack Load (0.0ms)[0m  SELECT "tracks".* FROM "tracks" 
+  Rendered tracks/index.html.erb within layouts/application (5.0ms)
+Completed 500 Internal Server Error in 25ms
+
+ActionView::Template::Error ([#<Track id: 1, title: "sankehips", created_at: "2012-04-28 05:16:50", updated_at: "2012-04-28 05:16:50">, #<Track id: 2, title: "out of season", created_at: "2012-04-28 05:17:13", updated_at: "2012-04-28 05:17:13">, #<Track id: 3, title: "Ur", created_at: "2012-04-28 05:17:26", updated_at: "2012-04-28 05:17:26">, #<Track id: 4, title: "days eye", created_at: "2012-04-28 05:17:44", updated_at: "2012-04-28 05:17:44">]):
+    7:     <th></th>
+    8:     <th></th>
+    9:   </tr>
+    10: <% raise @tracks.inspect %>
+    11: <% @tracks.each do |track| %>
+    12:   <tr>
+    13:     <td><%= track.title %></td>
+  app/views/tracks/index.html.erb:10:in `_app_views_tracks_index_html_erb__981453985_45249912'
+  app/controllers/tracks_controller.rb:7:in `index'
+
+
+  Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (15.0ms)
+  Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.0ms)
+  Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (60.0ms)
+
+
+Started GET "/tracks" for 127.0.0.1 at 2012-04-28 01:47:16 -0400
+Processing by TracksController#index as HTML
+  [1m[36mTrack Load (0.0ms)[0m  [1mSELECT "tracks".* FROM "tracks" [0m
+  Rendered tracks/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 30ms (Views: 25.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-04-28 01:47:16 -0400
+Served asset /application.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-04-28 01:47:17 -0400
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tracks.css?body=1" for 127.0.0.1 at 2012-04-28 01:47:18 -0400
+Served asset /tracks.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-04-28 01:47:19 -0400
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-04-28 01:47:20 -0400
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tracks.js?body=1" for 127.0.0.1 at 2012-04-28 01:47:21 -0400
+Served asset /tracks.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-04-28 01:47:22 -0400
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/tracks/show" for 127.0.0.1 at 2012-04-28 01:47:40 -0400
+Processing by TracksController#show as HTML
+  Parameters: {"id"=>"show"}
+Completed 500 Internal Server Error in 5ms
+
+RuntimeError ({"action"=>"show", "controller"=>"tracks", "id"=>"show"}):
+  app/controllers/tracks_controller.rb:16:in `show'
+
+
+  Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (15.0ms)
+  Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.0ms)
+  Rendered c:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (69.0ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTracks (20120428024525)
+Migrating to AddT (20120429193027)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTracks (20120428024525)
+Migrating to AddT (20120429193027)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTracks (20120428024525)
+Migrating to AddT (20120429193027)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTracks (20120428024525)
+Migrating to AddT (20120429193027)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTracks (20120428024525)
+Migrating to AddT (20120429193027)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTracks (20120428024525)
+Migrating to AddT (20120429193027)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTracks (20120428024525)
+Migrating to AddT (20120429193027)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTracks (20120428024525)
+Migrating to AddT (20120429193027)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTracks (20120428024525)
+Migrating to AddT (20120429193027)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (1.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTracks (20120428024525)
+Migrating to AddT (20120429193027)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTracks (20120428024525)
+Migrating to AddT (20120429193027)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTracks (20120428024525)
+Migrating to AddT (20120429193027)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTracks (20120428024525)
+Migrating to AddT (20120429193027)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTracks (20120428024525)
+Migrating to AddT (20120429193027)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTracks (20120428024525)
+Migrating to AddT (20120429193027)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTracks (20120428024525)
+Migrating to AddT (20120429193027)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  rollback transaction
+  [1m[36m (1.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTracks (20120428024525)
+Migrating to AddT (20120429193027)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTracks (20120428024525)
+Migrating to AddT (20120429193027)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  ALTER TABLE "trax" ADD "artist" varchar(255)
+SQLite3::SQLException: no such table: trax: ALTER TABLE "trax" ADD "artist" varchar(255)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTracks (20120428024525)
+Migrating to AddT (20120429193027)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (86.0ms)[0m  ALTER TABLE "tracks" ADD "artist" varchar(255)
+  [1m[36m (1.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20120429193027')[0m
+  [1m[35m (6.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("tracks")[0m
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTracks (20120428024525)
+Migrating to AddT (20120429193027)
+Migrating to AddArt (20120429201447)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTracks (20120428024525)
+Migrating to AddT (20120429193027)
+Migrating to AddArt (20120429201447)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTracks (20120428024525)
+Migrating to AddT (20120429193027)
+Migrating to AddArt (20120429201447)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTracks (20120428024525)
+Migrating to AddT (20120429193027)
+Migrating to AddArt (20120429201447)
+  [1m[35m (1.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTracks (20120428024525)
+Migrating to AddT (20120429193027)
+Migrating to AddArt (20120429201447)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTracks (20120428024525)
+Migrating to AddT (20120429193027)
+Migrating to AddArt (20120429201447)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTracks (20120428024525)
+Migrating to AddT (20120429193027)
+Migrating to AddArt (20120429201447)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTracks (20120428024525)
+Migrating to AddT (20120429193027)
+Migrating to AddArt (20120429201447)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTracks (20120428024525)
+Migrating to AddT (20120429193027)
+Migrating to AddArt (20120429201447)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTracks (20120428024525)
+Migrating to AddT (20120429193027)
+Migrating to AddArt (20120429201447)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (1.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTracks (20120428024525)
+Migrating to AddT (20120429193027)
+Migrating to AddArt (20120429201447)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTracks (20120428024525)
+Migrating to AddT (20120429193027)
+Migrating to AddArt (20120429201447)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTracks (20120428024525)
+Migrating to AddT (20120429193027)
+Migrating to AddArt (20120429201447)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTracks (20120428024525)
+Migrating to AddT (20120429193027)
+Migrating to AddArt (20120429201447)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  ALTER TABLE "tracks" ADD "runtime" varchar(255)
+  [1m[36m (1.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20120429201447')[0m
+  [1m[35m (8.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("tracks")[0m
+  [1m[36m (1.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTracks (20120428024525)
+Migrating to AddT (20120429193027)
+Migrating to AddArt (20120429201447)
+Migrating to Genrefication (20120429204814)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTracks (20120428024525)
+Migrating to AddT (20120429193027)
+Migrating to AddArt (20120429201447)
+Migrating to Genrefication (20120429204814)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTracks (20120428024525)
+Migrating to AddT (20120429193027)
+Migrating to AddArt (20120429201447)
+Migrating to Genrefication (20120429204814)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTracks (20120428024525)
+Migrating to AddT (20120429193027)
+Migrating to AddArt (20120429201447)
+Migrating to Genrefication (20120429204814)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTracks (20120428024525)
+Migrating to AddT (20120429193027)
+Migrating to AddArt (20120429201447)
+Migrating to Genrefication (20120429204814)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTracks (20120428024525)
+Migrating to AddT (20120429193027)
+Migrating to AddArt (20120429201447)
+Migrating to Genrefication (20120429204814)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTracks (20120428024525)
+Migrating to AddT (20120429193027)
+Migrating to AddArt (20120429201447)
+Migrating to Genrefication (20120429204814)
+  [1m[35m (1.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (1.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTracks (20120428024525)
+Migrating to AddT (20120429193027)
+Migrating to AddArt (20120429201447)
+Migrating to Genrefication (20120429204814)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTracks (20120428024525)
+Migrating to AddT (20120429193027)
+Migrating to AddArt (20120429201447)
+Migrating to Genrefication (20120429204814)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (1.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTracks (20120428024525)
+Migrating to AddT (20120429193027)
+Migrating to AddArt (20120429201447)
+Migrating to Genrefication (20120429204814)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTracks (20120428024525)
+Migrating to AddT (20120429193027)
+Migrating to AddArt (20120429201447)
+Migrating to Genrefication (20120429204814)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (2.0ms)[0m  CREATE TABLE "genres" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "genre" varchar(255), "sub_genre" varchar(255), "notes" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20120429204814')[0m
+  [1m[35m (57.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("genres")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("tracks")
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Migrating to Genrefication (20120429204814)
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (10.0ms)[0m  [1mDROP TABLE "genres"[0m
+  [1m[35m (0.0ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20120429204814'
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("tracks")
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateTracks (20120428024525)
+Migrating to AddT (20120429193027)
+Migrating to AddArt (20120429201447)
+Migrating to Genrefication (20120429204814)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  CREATE TABLE "genres" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "genre" varchar(255), "sub_genre" varchar(255), "notes" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20120429204814')[0m
+  [1m[35m (60.0ms)[0m  commit transaction
+Migrating to Manythru (20120430003656)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
